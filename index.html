@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendar Day View</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #f1f5f9;
+      font-family: Arial, sans-serif;
+      color: #1e293b;
+    }
+
+    .calendar {
+      width: 280px;
+      padding: 28px;
+      background: white;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 12px 35px #0f172a15;
+    }
+
+    .month {
+      color: #64748b;
+      font-size: 15px;
+      margin-bottom: 18px;
+    }
+
+    .day {
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .date {
+      margin: 12px 0;
+      font-size: 72px;
+      font-weight: 700;
+      color: #2563eb;
+    }
+
+    .year {
+      color: #64748b;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <main class="calendar">
+    <div class="month" id="month"></div>
+    <div class="day" id="day"></div>
+    <div class="date" id="date"></div>
+    <div class="year" id="year"></div>
+  </main>
+
+  <script>
+    const today = new Date();
+
+    document.getElementById("month").textContent =
+      today.toLocaleDateString("en-US", { month: "long" });
+
+    document.getElementById("day").textContent =
+      today.toLocaleDateString("en-US", { weekday: "long" });
+
+    document.getElementById("date").textContent =
+      today.getDate();
+
+    document.getElementById("year").textContent =
+      today.getFullYear();
+  </script>
+</body>
+</html>
